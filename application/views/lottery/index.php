@@ -26,10 +26,10 @@
 						<div class="w-100">
 							<div class="row mx-0">
 								<div class="col-6 pl-0">
-									<button class="btn btn-main" id="btn-main1" value="สามตัวบน">สามตัวบน</button>
+									<button class="btn btn-main" id="btn-main1" value="สามตัวบน">สามตัวบน (750)</button>
 								</div>
 								<div class="col-6 pr-0">
-									<button class="btn btn-main" id="btn-main2" value="สามตัวกลับ">สามตัวกลับ</button>
+									<button class="btn btn-main" id="btn-main2" value="สามตัวโต้ด">สามตัวโต้ด (120)</button>
 								</div>
 							</div>
             </div>
@@ -186,10 +186,10 @@
 						<div class="w-100">
 							<div class="row mx-0">
 								<div class="col-6 pl-0">
-									<button class="btn btn-main">สองตัวบน</button>
+									<button class="btn btn-main" id="btn-two-top" value="สองตัวบน">สองตัวบน (90)</button>
 								</div>
 								<div class="col-6 pr-0">
-									<button class="btn btn-main">สองตัวล่าง</button>
+									<button class="btn btn-main" id="btn-two-bottom" value="สองตัวล่าง">สองตัวล่าง (90)</button>
 								</div>
 							</div>
 						</div>
@@ -205,7 +205,7 @@
                   }
               ?>
 									<div class="column-two">
-										<button class="btn btn-first" value="<?php echo $i; ?>"><?php echo $i; ?></button>
+										<button class="btn btn-first-two" value="<?php echo $i; ?>"><?php echo $i; ?></button>
 									</div>
 									<?php 
                 }
@@ -218,10 +218,10 @@
 						<div class="w-100">
 							<div class="row mx-0">
 								<div class="col-6 pl-0">
-									<button class="btn btn-main">วิ่งบน</button>
+									<button class="btn btn-main" id="btn-run-top" value="วิ่งบน">วิ่งบน (3.20)</button>
 								</div>
 								<div class="col-6 pr-0">
-									<button class="btn btn-main">วิ่งล่าง</button>
+									<button class="btn btn-main" id="btn-run-bottom" value="วิ่งล่าง">วิ่งล่าง (4.20)</button>
 								</div>
 							</div>
 						</div>
@@ -234,7 +234,7 @@
                     for($i = 0; $i <= 9; $i++){
                   ?>
 									<div class="column-20">
-										<button class="btn btn-first" value="<?php echo $i; ?>"><?php echo $i; ?></button>
+										<button class="btn btn-first-run" value="<?php echo $i; ?>"><?php echo $i; ?></button>
 									</div>
 									<?php 
                     }
@@ -250,7 +250,24 @@
           <h5>รายการแทง</h5>
         </div>
         <div class="number mt-4">
-          
+          <div class="three-top d-none">
+            <p>สามตัวบน</p>
+          </div>
+          <div class="three-tod d-none">
+            <p>สามตัวโต้ด</p>
+          </div>
+          <div class="two-top d-none">
+            <p>สองตัวบน</p>
+          </div>
+          <div class="two-bottom d-none">
+            <p>สองตัวล่าง</p>
+          </div>
+          <div class="run-top d-none">
+            <p>วิ่งบน</p>
+          </div>
+          <div class="run-bottom d-none">
+            <p>วิ่งล่าง</p>
+          </div>
         </div>
 			</div>
 		</div>
@@ -269,20 +286,175 @@ $('.btn-main').on('click', function(){
   }
 })
 $('.btn-first').on('click', function(){
-  if(!$(this).hasClass('active')){
-    var text = "";
-    text +=  '<div class="input-group">';
-    text +=  '<button class="btn-number">'+($(this).val())+'</button>';
-    text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
-    text +=  '<button class="btn-sum" disabled>ชนะ : 750</button>';
-    text +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
-    text +=  '</div>';
-    $(this).addClass('active');
-    $('.number').append(text);
+  if($('#btn-main1').hasClass('active') || $('#btn-main2').hasClass('active')){
+    if($('#btn-main1').hasClass('active') && $('#btn-main2').hasClass('active')){
+      $('.three-top').removeClass('d-none');
+      $('.three-tod').removeClass('d-none');
+      if(!$(this).hasClass('active')){
+      var text1 = "";
+      text1 +=  '<div class="input-group">';
+      text1 +=  '<button class="btn-number">'+($(this).val())+'</button>';
+      text1 +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
+      text1 +=  '<button class="btn-sum" disabled>ชนะ : 750</button>';
+      text1 +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+      text1 +=  '</div>';
+      var text2 = "";
+      text2 +=  '<div class="input-group">';
+      text2 +=  '<button class="btn-number">'+($(this).val())+'</button>';
+      text2 +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
+      text2 +=  '<button class="btn-sum" disabled>ชนะ : 120</button>';
+      text2 +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+      text2 +=  '</div>';
+      $(this).addClass('active');
+      $('.three-top').append(text1);
+      $('.three-tod').append(text2);
+    }
+    }
+    else if($('#btn-main1').hasClass('active')){
+      $('.three-top').removeClass('d-none');
+      if(!$(this).hasClass('active')){
+        var text = "";
+        text +=  '<div class="input-group">';
+        text +=  '<button class="btn-number">'+($(this).val())+'</button>';
+        text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
+        text +=  '<button class="btn-sum" disabled>ชนะ : 750</button>';
+        text +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+        text +=  '</div>';
+        $(this).addClass('active');
+        $('.three-top').append(text);
+      }
+    }else if ($('#btn-main2').hasClass('active')){
+      $('.three-tod').removeClass('d-none');
+      if(!$(this).hasClass('active')){
+        var text = "";
+        text +=  '<div class="input-group">';
+        text +=  '<button class="btn-number">'+($(this).val())+'</button>';
+        text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
+        text +=  '<button class="btn-sum" disabled>ชนะ : 120</button>';
+        text +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+        text +=  '</div>';
+        $(this).addClass('active');
+        $('.three-tod').append(text);
+      }
+    }
   }else{
-    // $(this).removeClass('active');
+    alert('เลือก สามตัวบน หรือ สามตัวโต้ดก่อน!!!');
   }
 })
+
+
+
+$('.btn-first-two').on('click', function(){
+  if($('#btn-two-top').hasClass('active') || $('#btn-two-bottom').hasClass('active')){
+    if($('#btn-two-top').hasClass('active') && $('#btn-two-bottom').hasClass('active')){
+      $('.two-top').removeClass('d-none');
+      $('.two-bottom').removeClass('d-none');
+      if(!$(this).hasClass('active')){
+      var text = "";
+      text +=  '<div class="input-group">';
+      text +=  '<button class="btn-number">'+($(this).val())+'</button>';
+      text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
+      text +=  '<button class="btn-sum" disabled>ชนะ : 90</button>';
+      text +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+      text +=  '</div>';
+      $(this).addClass('active');
+      $('.two-top').append(text);
+      $('.two-bottom').append(text);
+    }
+    }
+    else if($('#btn-two-top').hasClass('active')){
+      $('.two-top').removeClass('d-none');
+      if(!$(this).hasClass('active')){
+        var text = "";
+        text +=  '<div class="input-group">';
+        text +=  '<button class="btn-number">'+($(this).val())+'</button>';
+        text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
+        text +=  '<button class="btn-sum" disabled>ชนะ : 90</button>';
+        text +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+        text +=  '</div>';
+        $(this).addClass('active');
+        $('.two-top').append(text);
+      }
+    }else if ($('#btn-two-bottom').hasClass('active')){
+      $('.two-bottom').removeClass('d-none');
+      if(!$(this).hasClass('active')){
+        var text = "";
+        text +=  '<div class="input-group">';
+        text +=  '<button class="btn-number">'+($(this).val())+'</button>';
+        text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
+        text +=  '<button class="btn-sum" disabled>ชนะ : 90</button>';
+        text +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+        text +=  '</div>';
+        $(this).addClass('active');
+        $('.two-bottom').append(text);
+      }
+    }
+  }else{
+    alert('เลือก สองตัวบน หรือ สองตัวล่างก่อน!!!');
+  }
+})
+
+
+$('.btn-first-run').on('click', function(){
+  if($('#btn-run-top').hasClass('active') || $('#btn-run-bottom').hasClass('active')){
+    if($('#btn-run-top').hasClass('active') && $('#btn-run-bottom').hasClass('active')){
+      $('.run-top').removeClass('d-none');
+      $('.run-bottom').removeClass('d-none');
+      if(!$(this).hasClass('active')){
+      var text1 = "";
+      text1 +=  '<div class="input-group">';
+      text1 +=  '<button class="btn-number">'+($(this).val())+'</button>';
+      text1 +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
+      text1 +=  '<button class="btn-sum" disabled>ชนะ : 3.20</button>';
+      text1 +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+      text1 +=  '</div>';
+      var text2 = "";
+      text2 +=  '<div class="input-group">';
+      text2 +=  '<button class="btn-number">'+($(this).val())+'</button>';
+      text2 +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
+      text2 +=  '<button class="btn-sum" disabled>ชนะ : 4.20</button>';
+      text2 +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+      text2 +=  '</div>';
+      $(this).addClass('active');
+      $('.run-top').append(text1);
+      $('.run-bottom').append(text2);
+    }
+    }
+    else if($('#btn-run-top').hasClass('active')){
+      $('.run-top').removeClass('d-none');
+      if(!$(this).hasClass('active')){
+        var text = "";
+        text +=  '<div class="input-group">';
+        text +=  '<button class="btn-number">'+($(this).val())+'</button>';
+        text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
+        text +=  '<button class="btn-sum" disabled>ชนะ : 90</button>';
+        text +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+        text +=  '</div>';
+        $(this).addClass('active');
+        $('.run-top').append(text);
+      }
+    }else if ($('#btn-run-bottom').hasClass('active')){
+      $('.run-bottom').removeClass('d-none');
+      if(!$(this).hasClass('active')){
+        var text = "";
+        text +=  '<div class="input-group">';
+        text +=  '<button class="btn-number">'+($(this).val())+'</button>';
+        text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
+        text +=  '<button class="btn-sum" disabled>ชนะ : 90</button>';
+        text +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+        text +=  '</div>';
+        $(this).addClass('active');
+        $('.run-bottom').append(text);
+      }
+    }
+  }else{
+    alert('เลือก วิ่งบน หรือ วิ่งล่างก่อน!!!');
+  }
+})
+
+
+
+
 $('.btn-del').on('click', function(){
   alert('test');
   $(this).parent().remove();
