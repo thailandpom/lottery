@@ -251,22 +251,22 @@
         </div>
         <div class="number mt-4">
           <div class="three-top d-none">
-            <p>สามตัวบน</p>
+            <p class="p-show">สามตัวบน</p>
           </div>
           <div class="three-tod d-none">
-            <p>สามตัวโต้ด</p>
+            <p class="p-show">สามตัวโต้ด</p>
           </div>
           <div class="two-top d-none">
-            <p>สองตัวบน</p>
+            <p class="p-show">สองตัวบน</p>
           </div>
           <div class="two-bottom d-none">
-            <p>สองตัวล่าง</p>
+            <p class="p-show">สองตัวล่าง</p>
           </div>
           <div class="run-top d-none">
-            <p>วิ่งบน</p>
+            <p class="p-show">วิ่งบน</p>
           </div>
           <div class="run-bottom d-none">
-            <p>วิ่งล่าง</p>
+            <p class="p-show">วิ่งล่าง</p>
           </div>
         </div>
 			</div>
