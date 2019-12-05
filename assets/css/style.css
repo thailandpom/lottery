@@ -79,14 +79,18 @@
 .nav-tabs .nav-link {
   border-radius: 0 !important;
 }
-/* .backdrop-number {
+.show-number-three,.show-number-two,.show-number-run {
+  position: relative;
+}
+.backdrop-number1,.backdrop-number2,.backdrop-number3 {
   position: absolute;
   z-index: 10;
   width: 100%;
   height: 100%;
   background-color: #000;
   opacity: 0.3;
-} */
+}
+
 .input-group {
   margin-bottom: 10px;
 }

@@ -35,7 +35,7 @@
             </div>
             
             <div class="show-number-three">
-              <div class="show-three backdrop-number"></div>
+              <div class="show-three backdrop-number1"></div>
               <ul class="nav nav-tabs mt-4" role="tablist">
                 <?php 
                   for($i = 0; $i <= 900; $i+= 100){
@@ -192,27 +192,30 @@
 									<button class="btn btn-main" id="btn-two-bottom" value="สองตัวล่าง">สองตัวล่าง (90)</button>
 								</div>
 							</div>
-						</div>
-						<div class="w-100 mt-4">
-							<div class="row mx-0">
-								<div class="col-12 px-0">
+            </div>
+            <div class="show-number-two">
+              <div class="show-two backdrop-number2"></div>
+              <div class="w-100 mt-4">
+                <div class="row mx-0">
+                  <div class="col-12 px-0">
 
 
-									<?php 
-                for($i = 1; $i <= 99; $i++){
-                  if($i < 10){
-                    $i = '0'.$i;
+                    <?php 
+                  for($i = 1; $i <= 99; $i++){
+                    if($i < 10){
+                      $i = '0'.$i;
+                    }
+                ?>
+                    <div class="column-two">
+                      <button class="btn btn-first-two" value="<?php echo $i; ?>"><?php echo $i; ?></button>
+                    </div>
+                    <?php 
                   }
-              ?>
-									<div class="column-two">
-										<button class="btn btn-first-two" value="<?php echo $i; ?>"><?php echo $i; ?></button>
-									</div>
-									<?php 
-                }
-              ?>
-								</div>
-							</div>
-						</div>
+                ?>
+                  </div>
+                </div>
+              </div>
+            </div>
 					</div>
 					<div role="tabpanel" class="tab-pane fade" id="main-run">
 						<div class="w-100">
@@ -224,24 +227,27 @@
 									<button class="btn btn-main" id="btn-run-bottom" value="วิ่งล่าง">วิ่งล่าง (4.20)</button>
 								</div>
 							</div>
-						</div>
-						<div class="w-100 mt-4">
-							<div class="row mx-0">
-								<div class="col-12 px-0">
+            </div>
+            <div class="show-number-run">
+              <div class="show-run backdrop-number3"></div>
+              <div class="w-100 mt-4">
+                <div class="row mx-0">
+                  <div class="col-12 px-0">
 
 
-									<?php 
-                    for($i = 0; $i <= 9; $i++){
-                  ?>
-									<div class="column-20">
-										<button class="btn btn-first-run" value="<?php echo $i; ?>"><?php echo $i; ?></button>
-									</div>
-									<?php 
-                    }
-                  ?>
-								</div>
-							</div>
-						</div>
+                    <?php 
+                      for($i = 0; $i <= 9; $i++){
+                    ?>
+                    <div class="column-20">
+                      <button class="btn btn-first-run" value="<?php echo $i; ?>"><?php echo $i; ?></button>
+                    </div>
+                    <?php 
+                      }
+                    ?>
+                  </div>
+                </div>
+              </div>
+            </div>
 					</div>
 				</div>
 			</div>
@@ -275,16 +281,135 @@
 </div>
 
 <script>
-$('.btn-main').on('click', function(){
+$('#btn-main1').on('click', function(){
   if(!$(this).hasClass('active')){
     $(this).addClass('active');
-    // $('.number').append('<p>'+ $(this).val() +'</p>');
-    $('.show-three').removeClass('backdrop-number');
+    if($(this).hasClass('active') || $('#btn-main2').hasClass('active')){
+      $('.show-three').removeClass('backdrop-number1');
+    }else{
+      $(this).removeClass('active');
+      $('.show-three').addClass('backdrop-number1');
+    }
   }else{
     $(this).removeClass('active');
-    $('.show-three').addClass('backdrop-number');
+    if($(this).hasClass('active') || $('#btn-main2').hasClass('active')){
+      $('.show-three').removeClass('backdrop-number1');
+    }else{
+      $(this).removeClass('active');
+      $('.show-three').addClass('backdrop-number1');
+    }
   }
 })
+$('#btn-main2').on('click', function(){
+  if(!$(this).hasClass('active')){
+    $(this).addClass('active');
+    if($(this).hasClass('active') || $('#btn-main1').hasClass('active')){
+      $('.show-three').removeClass('backdrop-number1');
+    }else{
+      $(this).removeClass('active');
+      $('.show-three').addClass('backdrop-number1');
+    }
+  }else{
+    $(this).removeClass('active');
+    if($(this).hasClass('active') || $('#btn-main1').hasClass('active')){
+      $('.show-three').removeClass('backdrop-number1');
+    }else{
+      $(this).removeClass('active');
+      $('.show-three').addClass('backdrop-number1');
+    }
+  }
+})
+
+
+
+
+
+$('#btn-two-top').on('click', function(){
+  if(!$(this).hasClass('active')){
+    $(this).addClass('active');
+    if($(this).hasClass('active') || $('#btn-two-bottom').hasClass('active')){
+      $('.show-two').removeClass('backdrop-number2');
+    }else{
+      $(this).removeClass('active');
+      $('.show-two').addClass('backdrop-number2');
+    }
+  }else{
+    $(this).removeClass('active');
+    if($(this).hasClass('active') || $('#btn-two-bottom').hasClass('active')){
+      $('.show-two').removeClass('backdrop-number2');
+    }else{
+      $(this).removeClass('active');
+      $('.show-two').addClass('backdrop-number2');
+    }
+  }
+})
+$('#btn-two-bottom').on('click', function(){
+  if(!$(this).hasClass('active')){
+    $(this).addClass('active');
+    if($(this).hasClass('active') || $('#btn-two-top').hasClass('active')){
+      $('.show-two').removeClass('backdrop-number2');
+    }else{
+      $(this).removeClass('active');
+      $('.show-two').addClass('backdrop-number2');
+    }
+  }else{
+    $(this).removeClass('active');
+    if($(this).hasClass('active') || $('#btn-main1').hasClass('active')){
+      $('.show-two').removeClass('backdrop-number2');
+    }else{
+      $(this).removeClass('active');
+      $('.show-two').addClass('backdrop-number2');
+    }
+  }
+})
+
+
+
+
+
+$('#btn-run-top').on('click', function(){
+  if(!$(this).hasClass('active')){
+    $(this).addClass('active');
+    if($(this).hasClass('active') || $('#btn-run-bottom').hasClass('active')){
+      $('.show-run').removeClass('backdrop-number3');
+    }else{
+      $(this).removeClass('active');
+      $('.show-run').addClass('backdrop-number3');
+    }
+  }else{
+    $(this).removeClass('active');
+    if($(this).hasClass('active') || $('#btn-run-bottom').hasClass('active')){
+      $('.show-run').removeClass('backdrop-number3');
+    }else{
+      $(this).removeClass('active');
+      $('.show-run').addClass('backdrop-number3');
+    }
+  }
+})
+$('#btn-run-bottom').on('click', function(){
+  if(!$(this).hasClass('active')){
+    $(this).addClass('active');
+    if($(this).hasClass('active') || $('#btn-run-top').hasClass('active')){
+      $('.show-run').removeClass('backdrop-number3');
+    }else{
+      $(this).removeClass('active');
+      $('.show-run').addClass('backdrop-number3');
+    }
+  }else{
+    $(this).removeClass('active');
+    if($(this).hasClass('active') || $('#btn-main1').hasClass('active')){
+      $('.show-run').removeClass('backdrop-number3');
+    }else{
+      $(this).removeClass('active');
+      $('.show-run').addClass('backdrop-number3');
+    }
+  }
+})
+
+
+
+
+
 $('.btn-first').on('click', function(){
   if($('#btn-main1').hasClass('active') || $('#btn-main2').hasClass('active')){
     if($('#btn-main1').hasClass('active') && $('#btn-main2').hasClass('active')){
@@ -344,6 +469,9 @@ $('.btn-first').on('click', function(){
 
 
 
+
+
+
 $('.btn-first-two').on('click', function(){
   if($('#btn-two-top').hasClass('active') || $('#btn-two-bottom').hasClass('active')){
     if($('#btn-two-top').hasClass('active') && $('#btn-two-bottom').hasClass('active')){
@@ -393,6 +521,9 @@ $('.btn-first-two').on('click', function(){
     alert('เลือก สองตัวบน หรือ สองตัวล่างก่อน!!!');
   }
 })
+
+
+
 
 
 $('.btn-first-run').on('click', function(){
