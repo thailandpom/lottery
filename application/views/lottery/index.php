@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
       <div class="bg-white">
-      doc sdasdasd
+      doc sdasdasd asdasdasdasd
         <?php 
           foreach($users as $val) {
             echo $val->l_id;
