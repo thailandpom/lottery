@@ -257,22 +257,22 @@
         </div>
         <div class="number mt-4">
           <div class="three-top d-none">
-            <p class="p-show">สามตัวบน</p>
+            <p class="p-show d-none">สามตัวบน</p>
           </div>
           <div class="three-tod d-none">
-            <p class="p-show">สามตัวโต้ด</p>
+            <p class="p-show d-none">สามตัวโต้ด</p>
           </div>
           <div class="two-top d-none">
-            <p class="p-show">สองตัวบน</p>
+            <p class="p-show d-none">สองตัวบน</p>
           </div>
           <div class="two-bottom d-none">
-            <p class="p-show">สองตัวล่าง</p>
+            <p class="p-show d-none">สองตัวล่าง</p>
           </div>
           <div class="run-top d-none">
-            <p class="p-show">วิ่งบน</p>
+            <p class="p-show d-none">วิ่งบน</p>
           </div>
           <div class="run-bottom d-none">
-            <p class="p-show">วิ่งล่าง</p>
+            <p class="p-show d-none">วิ่งล่าง</p>
           </div>
         </div>
 			</div>
@@ -415,50 +415,57 @@ $('.btn-first').on('click', function(){
     if($('#btn-main1').hasClass('active') && $('#btn-main2').hasClass('active')){
       $('.three-top').removeClass('d-none');
       $('.three-tod').removeClass('d-none');
+      $('.three-top .p-show').removeClass('d-none');
+      $('.three-tod .p-show').removeClass('d-none');
       if(!$(this).hasClass('active')){
       var text1 = "";
       text1 +=  '<div class="input-group">';
       text1 +=  '<button class="btn-number">'+($(this).val())+'</button>';
       text1 +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
       text1 +=  '<button class="btn-sum" disabled>ชนะ : 750</button>';
-      text1 +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+      text1 +=  '<button class="btn-del" id="btn-three-top'+($(this).val())+'" onclick="del_three_top(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
       text1 +=  '</div>';
       var text2 = "";
       text2 +=  '<div class="input-group">';
       text2 +=  '<button class="btn-number">'+($(this).val())+'</button>';
       text2 +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
       text2 +=  '<button class="btn-sum" disabled>ชนะ : 120</button>';
-      text2 +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+      text2 +=  '<button class="btn-del" id="btn-three-tod'+($(this).val())+'" onclick="del_three_tod(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
       text2 +=  '</div>';
       $(this).addClass('active');
+      $(this).attr('id', 'three-all'+$(this).val());
       $('.three-top').append(text1);
       $('.three-tod').append(text2);
     }
     }
     else if($('#btn-main1').hasClass('active')){
       $('.three-top').removeClass('d-none');
+      $('.three-top .p-show').removeClass('d-none');
       if(!$(this).hasClass('active')){
         var text = "";
         text +=  '<div class="input-group">';
         text +=  '<button class="btn-number">'+($(this).val())+'</button>';
         text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
         text +=  '<button class="btn-sum" disabled>ชนะ : 750</button>';
-        text +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+        text +=  '<button class="btn-del" id="btn-three-top'+($(this).val())+'" onclick="del_three_top(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
         text +=  '</div>';
         $(this).addClass('active');
+        $(this).attr('id', 'three-top'+$(this).val());
         $('.three-top').append(text);
       }
     }else if ($('#btn-main2').hasClass('active')){
       $('.three-tod').removeClass('d-none');
+      $('.three-tod .p-show').removeClass('d-none');
       if(!$(this).hasClass('active')){
         var text = "";
         text +=  '<div class="input-group">';
         text +=  '<button class="btn-number">'+($(this).val())+'</button>';
         text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
         text +=  '<button class="btn-sum" disabled>ชนะ : 120</button>';
-        text +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+        text +=  '<button class="btn-del" id="btn-three-tod'+($(this).val())+'" onclick="del_three_tod(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
         text +=  '</div>';
         $(this).addClass('active');
+        $(this).attr('id', 'three-tod'+$(this).val());
         $('.three-tod').append(text);
       }
     }
@@ -477,43 +484,57 @@ $('.btn-first-two').on('click', function(){
     if($('#btn-two-top').hasClass('active') && $('#btn-two-bottom').hasClass('active')){
       $('.two-top').removeClass('d-none');
       $('.two-bottom').removeClass('d-none');
+      $('.two-top .p-show').removeClass('d-none');
+      $('.two-bottom .p-show').removeClass('d-none');
       if(!$(this).hasClass('active')){
-      var text = "";
-      text +=  '<div class="input-group">';
-      text +=  '<button class="btn-number">'+($(this).val())+'</button>';
-      text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
-      text +=  '<button class="btn-sum" disabled>ชนะ : 90</button>';
-      text +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
-      text +=  '</div>';
+      var text1 = "";
+      text1 +=  '<div class="input-group">';
+      text1 +=  '<button class="btn-number">'+($(this).val())+'</button>';
+      text1 +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
+      text1 +=  '<button class="btn-sum" disabled>ชนะ : 90</button>';
+      text1 +=  '<button class="btn-del" id="btn-two-top'+($(this).val())+'" onclick="del_two_top(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
+      text1 +=  '</div>';
+      var text2 = "";
+      text2 +=  '<div class="input-group">';
+      text2 +=  '<button class="btn-number">'+($(this).val())+'</button>';
+      text2 +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
+      text2 +=  '<button class="btn-sum" disabled>ชนะ : 90</button>';
+      text2 +=  '<button class="btn-del" id="btn-two-bottom'+($(this).val())+'" onclick="del_two_bottom(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
+      text2 +=  '</div>';
       $(this).addClass('active');
-      $('.two-top').append(text);
-      $('.two-bottom').append(text);
+      $(this).attr('id', 'two-all'+$(this).val());
+      $('.two-top').append(text1);
+      $('.two-bottom').append(text2);
     }
     }
     else if($('#btn-two-top').hasClass('active')){
       $('.two-top').removeClass('d-none');
+      $('.two-top .p-show').removeClass('d-none');
       if(!$(this).hasClass('active')){
         var text = "";
         text +=  '<div class="input-group">';
         text +=  '<button class="btn-number">'+($(this).val())+'</button>';
         text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
         text +=  '<button class="btn-sum" disabled>ชนะ : 90</button>';
-        text +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+        text +=  '<button class="btn-del" id="btn-two-top'+($(this).val())+'" onclick="del_two_top(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
         text +=  '</div>';
         $(this).addClass('active');
+        $(this).attr('id', 'two-top'+$(this).val());
         $('.two-top').append(text);
       }
     }else if ($('#btn-two-bottom').hasClass('active')){
       $('.two-bottom').removeClass('d-none');
+      $('.two-bottom .p-show').removeClass('d-none');
       if(!$(this).hasClass('active')){
         var text = "";
         text +=  '<div class="input-group">';
         text +=  '<button class="btn-number">'+($(this).val())+'</button>';
         text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
         text +=  '<button class="btn-sum" disabled>ชนะ : 90</button>';
-        text +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+        text +=  '<button class="btn-del" id="btn-two-bottom'+($(this).val())+'" onclick="del_two_bottom(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
         text +=  '</div>';
         $(this).addClass('active');
+        $(this).attr('id', 'two-bottom'+$(this).val());
         $('.two-bottom').append(text);
       }
     }
@@ -531,50 +552,57 @@ $('.btn-first-run').on('click', function(){
     if($('#btn-run-top').hasClass('active') && $('#btn-run-bottom').hasClass('active')){
       $('.run-top').removeClass('d-none');
       $('.run-bottom').removeClass('d-none');
+      $('.run-top .p-show').removeClass('d-none');
+      $('.run-bottom .p-show').removeClass('d-none');
       if(!$(this).hasClass('active')){
       var text1 = "";
       text1 +=  '<div class="input-group">';
       text1 +=  '<button class="btn-number">'+($(this).val())+'</button>';
       text1 +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
       text1 +=  '<button class="btn-sum" disabled>ชนะ : 3.20</button>';
-      text1 +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+      text1 +=  '<button class="btn-del" id="btn-run-top'+($(this).val())+'" onclick="del_run_top(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
       text1 +=  '</div>';
       var text2 = "";
       text2 +=  '<div class="input-group">';
       text2 +=  '<button class="btn-number">'+($(this).val())+'</button>';
       text2 +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
       text2 +=  '<button class="btn-sum" disabled>ชนะ : 4.20</button>';
-      text2 +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+      text2 +=  '<button class="btn-del" id="btn-run-bottom'+($(this).val())+'" onclick="del_run_bottom(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
       text2 +=  '</div>';
       $(this).addClass('active');
+      $(this).attr('id', 'run-all'+$(this).val());
       $('.run-top').append(text1);
       $('.run-bottom').append(text2);
     }
     }
     else if($('#btn-run-top').hasClass('active')){
       $('.run-top').removeClass('d-none');
+      $('.run-top .p-show').removeClass('d-none');
       if(!$(this).hasClass('active')){
         var text = "";
         text +=  '<div class="input-group">';
         text +=  '<button class="btn-number">'+($(this).val())+'</button>';
         text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
-        text +=  '<button class="btn-sum" disabled>ชนะ : 90</button>';
-        text +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+        text +=  '<button class="btn-sum" disabled>ชนะ : 3.20</button>';
+        text +=  '<button class="btn-del" id="btn-run-top'+($(this).val())+'" onclick="del_run_top(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
         text +=  '</div>';
         $(this).addClass('active');
+        $(this).attr('id', 'run-top'+$(this).val());
         $('.run-top').append(text);
       }
     }else if ($('#btn-run-bottom').hasClass('active')){
       $('.run-bottom').removeClass('d-none');
+      $('.run-bottom .p-show').removeClass('d-none');
       if(!$(this).hasClass('active')){
         var text = "";
         text +=  '<div class="input-group">';
         text +=  '<button class="btn-number">'+($(this).val())+'</button>';
         text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
-        text +=  '<button class="btn-sum" disabled>ชนะ : 90</button>';
-        text +=  '<button class="btn-del"><i class="fas fa-times"></i></button>';
+        text +=  '<button class="btn-sum" disabled>ชนะ : 4.20</button>';
+        text +=  '<button class="btn-del" id="btn-run-bottom'+($(this).val())+'" onclick="del_run_bottom(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
         text +=  '</div>';
         $(this).addClass('active');
+        $(this).attr('id', 'run-bottom'+$(this).val());
         $('.run-bottom').append(text);
       }
     }
@@ -585,9 +613,89 @@ $('.btn-first-run').on('click', function(){
 
 
 
+function del_three_top (val) {
+  var three_top = $('.three-top .input-group').length;
+  if(three_top <= 1){
+    $('.three-top .p-show').addClass('d-none');
+  }
+  $("#three-top"+val).removeClass('active');
+  $("#three-all"+val).attr('id', 'three-tod'+val);
+  $("#btn-three-top"+val).parent().remove();
+  
+}
+function del_three_tod (val) {
+  var three_tod = $('.three-tod .input-group').length;
+  if(three_tod <= 1){
+    $('.three-tod .p-show').addClass('d-none');
+  }
+  $("#three-tod"+val).removeClass('active');
+  $("#three-all"+val).attr('id', 'three-top'+val);
+  $("#btn-three-tod"+val).parent().remove();
+}
+function del_two_top (val) {
+  var two_top = $('.two-top .input-group').length;
+  if(two_top <= 1){
+    $('.two-top .p-show').addClass('d-none');
+  }
+  $("#two-top"+val).removeClass('active');
+  $("#two-all"+val).attr('id', 'two-bottom'+val);
+  $("#btn-two-top"+val).parent().remove();
+}
+function del_two_bottom (val) {
+  var two_bottom = $('.two-bottom .input-group').length;
+  if(two_bottom <= 1){
+    $('.two-bottom .p-show').addClass('d-none');
+  }
+  $("#two-bottom"+val).removeClass('active');
+  $("#two-all"+val).attr('id', 'two-top'+val);
+  $("#btn-two-bottom"+val).parent().remove();
+}
+function del_run_top (val) {
+  var run_top = $('.run-top .input-group').length;
+  if(run_top <= 1){
+    $('.run-top .p-show').addClass('d-none');
+  }
+  $("#run-top"+val).removeClass('active');
+  $("#run-all"+val).attr('id', 'run-bottom'+val);
+  $("#btn-run-top"+val).parent().remove();
+}
+function del_run_bottom (val) {
+  var run_bottom = $('.run-bottom .input-group').length;
+  if(run_bottom <= 1){
+    $('.run-bottom .p-show').addClass('d-none');
+  }
+  $("#run-bottom"+val).removeClass('active');
+  $("#run-all"+val).attr('id', 'run-top'+val);
+  $("#btn-run-bottom"+val).parent().remove();
+}
 
-$('.btn-del').on('click', function(){
-  alert('test');
-  $(this).parent().remove();
-})
+// function del (val) {
+//   var three_top = $('.three-top .input-group').length;
+//   var three_tod = $('.three-tod .input-group').length;
+//   var two_top = $('.two-top .input-group').length;
+//   var two_bottom = $('.two-bottom .input-group').length;
+//   var run_top = $('.run-top .input-group').length;
+//   var run_bottom = $('.run-bottom .input-group').length;
+//   if(three_top <= 1){
+//     $('.three-top p').empty();
+//   }
+//   if(three_tod <= 1){
+//     $('.three-tod p').empty();
+//   }
+//   if(two_top <= 1){
+//     $('.two-top p').empty();
+//   }
+//   if(two_bottom <= 1){d
+//     $('.two-bottom p').empty();
+//   }
+//   if(run_top <= 1){
+//     $('.run-top p').empty();
+//   }
+//   if(run_bottom <= 1){
+//     $('.two-bottom p').empty();
+//   }
+//   console.log($("#btn-"+val).parent());
+//   // $("#btn-"+val).parent().remove();
+// }
+
 </script>
