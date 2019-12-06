@@ -13,6 +13,7 @@ class lottery extends CI_Controller {
   public function insert()
   {
 
+    $member_id = $this->session->userdata('l_id');
     //Check with user money
     $money = 100;
     $sum = $this->input->post('summary');
@@ -21,7 +22,7 @@ class lottery extends CI_Controller {
     }else{
       date_default_timezone_set('Asia/Bangkok');
       $data = array(
-        "member_id" => $this->session->userdata('l_id'),
+        "member_id" => $member_id,
         "sum" => $sum,
         "created_at" => date('Y-m-d H:i:s'),
         "updated_at" => date('Y-m-d H:i:s'),
