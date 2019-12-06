@@ -25,10 +25,28 @@ class user extends CI_Controller
         $this->load->view('main/main');
         $this->load->view('layouts/footer');
     }
+      public function listbank()
+    {
+        $this->load->view('layouts/header');
+        $this->load->view('main/listbank');
+        $this->load->view('layouts/footer');
+    }
+         public function deposit()
+    {
+        $this->load->view('layouts/header');
+        $this->load->view('main/deposit');
+        $this->load->view('layouts/footer');
+    }
     public function showuser()
     {
         $this->load->view('layouts/header');
         $this->load->view('main/showuser');
+        $this->load->view('layouts/footer');
+    }
+       public function showmain()
+    {
+        $this->load->view('layouts/header');
+        $this->load->view('main/showmain');
         $this->load->view('layouts/footer');
     }
     public function register()
@@ -76,7 +94,7 @@ class user extends CI_Controller
             $this->session->set_userdata('userType', $userType);
 
             $this->load->view('layouts/header');
-            $this->load->view('main/showuser');
+            $this->load->view('main/showmain');
             $this->load->view('layouts/footer');
             //redirect(base_url('welcome'));
         } else {

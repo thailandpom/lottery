@@ -39,7 +39,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </script>
     <body>
         <script language="javascript">
-
+$(document).ready(function () {
+$('#dtHorizontalExample').DataTable({
+"scrollX": true
+});
+$('.dataTables_length').addClass('bs-select');
+});
             function fncSubmit()
 
             {

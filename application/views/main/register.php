@@ -1,4 +1,4 @@
-<div class="col-xl-12 pb-12">
+ <div class="container">
             <div class="jumbotron">
                 <center>
                     <div class="col-xl-6 pb-6">
