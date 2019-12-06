@@ -27,10 +27,10 @@
 						<div class="w-100">
 							<div class="row mx-0">
 								<div class="col-6 pl-0">
-									<button class="btn btn-main" id="btn-main1" value="สามตัวบน">สามตัวบน (750)</button>
+									<button class="btn btn-main" id="btn-main1" value="สามตัวบน">สามตัวบน (800)</button>
 								</div>
 								<div class="col-6 pr-0">
-									<button class="btn btn-main" id="btn-main2" value="สามตัวโต้ด">สามตัวโต้ด (120)</button>
+									<button class="btn btn-main" id="btn-main2" value="สามตัวโต้ด">สามตัวโต้ด (150)</button>
 								</div>
 							</div>
             </div>
@@ -423,14 +423,14 @@ $('.btn-first').on('click', function(){
       text1 +=  '<div class="input-group">';
       text1 +=  '<button class="btn-number">'+($(this).val())+'</button>';
       text1 +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
-      text1 +=  '<button class="btn-sum" disabled>ชนะ : 750</button>';
+      text1 +=  '<button class="btn-sum" disabled>ชนะ : 800</button>';
       text1 +=  '<button class="btn-del" id="btn-three-top'+($(this).val())+'" onclick="del_three_top(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
       text1 +=  '</div>';
       var text2 = "";
       text2 +=  '<div class="input-group">';
       text2 +=  '<button class="btn-number">'+($(this).val())+'</button>';
       text2 +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
-      text2 +=  '<button class="btn-sum" disabled>ชนะ : 120</button>';
+      text2 +=  '<button class="btn-sum" disabled>ชนะ : 150</button>';
       text2 +=  '<button class="btn-del" id="btn-three-tod'+($(this).val())+'" onclick="del_three_tod(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
       text2 +=  '</div>';
       $(this).addClass('active');
@@ -447,7 +447,7 @@ $('.btn-first').on('click', function(){
         text +=  '<div class="input-group">';
         text +=  '<button class="btn-number">'+($(this).val())+'</button>';
         text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
-        text +=  '<button class="btn-sum" disabled>ชนะ : 750</button>';
+        text +=  '<button class="btn-sum" disabled>ชนะ : 800</button>';
         text +=  '<button class="btn-del" id="btn-three-top'+($(this).val())+'" onclick="del_three_top(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
         text +=  '</div>';
         $(this).addClass('active');
@@ -462,7 +462,7 @@ $('.btn-first').on('click', function(){
         text +=  '<div class="input-group">';
         text +=  '<button class="btn-number">'+($(this).val())+'</button>';
         text +=  '<input type="number" name="" value="1" min="1" class="form-control" />';
-        text +=  '<button class="btn-sum" disabled>ชนะ : 120</button>';
+        text +=  '<button class="btn-sum" disabled>ชนะ : 150</button>';
         text +=  '<button class="btn-del" id="btn-three-tod'+($(this).val())+'" onclick="del_three_tod(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
         text +=  '</div>';
         $(this).addClass('active');
