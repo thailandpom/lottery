@@ -67,9 +67,11 @@ class user extends CI_Controller
         $confirm_pass = $this->input->post("conpass");
         $query = $this->db->query("SELECT * FROM user WHERE username='$username'");
         if ($query->num_rows() > 0) {
+            $this->session->set_flashdata('error', 'มีผู้ใช้นี้แล้ว');
             redirect('user/register');
         }else{
             if($password != $confirm_pass) {
+                $this->session->set_flashdata('error', 'รหัสผ่าน และ ยืนยันรหัสผ่านไม่ตรงกัน');
                 redirect('user/register');
             }else{
                 $data = array(

@@ -1,5 +1,15 @@
  <div class="container">
             <div class="jumbotron">
+                <?php
+                if(!empty($this->session->flashdata('error'))){
+                ?>
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong><?php echo $this->session->flashdata('error'); ?>!</strong>
+                </div>
+                <?php
+                }
+                ?>
                 <center>
                     <div class="col-xl-6 pb-6">
                         <div class="card text-center">
