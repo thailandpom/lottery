@@ -82,7 +82,8 @@ class user extends CI_Controller
                     'status' => '1',
                     'userType' => '1',
                     "username" => $this->input->post("username"),
-                    "password" => md5($password),
+                    "password" => ($password),
+                    // "password" => md5($password),
         
                 );
                 $this->db->insert('user', $data);
@@ -96,7 +97,8 @@ class user extends CI_Controller
     public function checklogin()
     {
         $username = $this->input->post('username');
-        $password = md5($this->input->post('password'));
+        //$password = md5($this->input->post('password'));
+        $password = ($this->input->post('password'));
         $query = $this->db->query("SELECT * FROM user WHERE username='$username' AND password='$password'");
         if ($query->num_rows() > 0) {
             $row = $query->row();
