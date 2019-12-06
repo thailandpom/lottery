@@ -937,6 +937,7 @@ $("#form-save").on('submit', function(e){
       },
       type: "POST",
       success: function(data) {
+        console.log(data);
         if(data == 'success') {
           reset();
           alert('ชำระเงินสำเร็จ');
@@ -945,6 +946,7 @@ $("#form-save").on('submit', function(e){
         }
       },
       error: function() {
+        console.log(data);
         alert('Something is wrong');
       }
     });
