@@ -62,21 +62,34 @@ class user extends CI_Controller
     }
     public function insert()
     {
-
-        $data = array(
-            "b_id" => $this->input->post("b_id"),
-            "l_phone" => $this->input->post("l_phone"),
-            "l_name" => $this->input->post("l_name"),
-            "l_numbank" => $this->input->post("l_numbank"),
-            'status' => '1',
-            'userType' => '1',
-            "username" => $this->input->post("username"),
-            "password" => $this->input->post("password"),
-
-        );
-        $this->db->insert('user', $data);
-
-        redirect('user/showuser');
+        $username = $this->input->post('username');
+        $password = $this->input->post("password");
+        $confirm_pass = $this->input->post("conpass");
+        $query = $this->db->query("SELECT * FROM user WHERE username='$username'");
+        if ($query->num_rows() > 0) {
+            redirect('user/register');
+        }else{
+            if($password != $confirm_pass) {
+                redirect('user/register');
+            }else{
+                $data = array(
+                    "b_id" => $this->input->post("b_id"),
+                    "l_phone" => $this->input->post("l_phone"),
+                    "l_name" => $this->input->post("l_name"),
+                    "l_numbank" => $this->input->post("l_numbank"),
+                    'status' => '1',
+                    'userType' => '1',
+                    "username" => $this->input->post("username"),
+                    "password" => $password,
+        
+                );
+                $this->db->insert('user', $data);
+        
+                redirect('user/showuser');
+            }
+            
+        }
+        
     }
     public function checklogin()
     {
