@@ -35,14 +35,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     </head>
     <script>
-        var total_jackpot = '1000000.00'
+       $(document).ready(function () {
+$('#dtHorizontalExample').DataTable({
+"scrollX": true
+});
+$('.dataTables_length').addClass('bs-select');
+});
     </script>
     <body>
 
 
 
         <!--Navbar -->
+        
         <nav class="mb-1 navbar navbar-expand-lg  navbar-dark danger-color-dark">
+            <div class="container">
+  
+    
             <a class="navbar-brand" href="<?php echo base_url('index.php/user/main') ?>">LOTTERRY</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
                     aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $row = $query->row();
                         ?>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#"><i class="fas fa-home"></i>หน้าหลัก
+                            <a class="nav-link" href="<?php echo base_url('index.php/user/showmain') ?>"><i class="fas fa-home"></i>หน้าหลัก
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -66,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <a class="nav-link" href="<?php echo base_url('index.php/lottery/index') ?>"><i class="fas fa-magic"></i> แทงหวย</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-list"></i>แจ้ง ฝาก-ถอน</a>
+                            <a class="nav-link" href="<?php echo base_url('index.php/user/listbank') ?>"><i class="fas fa-list"></i>แจ้ง ฝาก-ถอน</a>
                         </li>
                         <?php
                     } else {
@@ -122,6 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     }
                     ?>
                 </ul>
+            </div>
             </div>
         </nav>
 

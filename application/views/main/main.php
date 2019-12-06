@@ -1,13 +1,17 @@
+   
+<?php
+                    if ($this->session->userdata('userType') == null) {
+                         $l_id = $this->session->userdata('l_id');
+                        $query = $this->db->query("SELECT * FROM user WHERE l_id = '$l_id'");
+                        $row = $query->row();
+                        ?>
 <div class="text-center">
     <a href="<?php echo base_url('index.php/user/register') ?>" class="btn btn-default mb-4 " ><i class="fas fa-address-card"> </i> สมัครสมาชิก</a>
     <a href="" class="btn btn-deep-orange mb-4" data-toggle="modal" data-target="#modalRegisterForm"><i class="fas fa-lock"> </i> เข้าใช้งานระบบ</a>
 </div>
-
-<div class="col-xl-12 pb-12">
-    <div class="jumbotron">
-
-
-
+ <?php } ?>
+<div class="container">
+    <div class="jumbotron text-center hoverable p-4">
 
         <div class="row">
             <div class="col-sm-6 mb-3 mb-md-0">
@@ -116,4 +120,4 @@
                             </tbody>
                         </table></div>
     </div>   
-</div>
+</div></div></div></div>
