@@ -131,7 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 	</nav>
-
+        <div class="start-container"></div>
 	<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 		aria-hidden="true">
 		<div class="modal-dialog" role="document">
