@@ -126,9 +126,8 @@ class user extends CI_Controller
             $this->session->set_userdata('username', $usernames);
             $this->session->set_userdata('userType', $userType);
 
-            $this->load->view('layouts/header');
-            $this->load->view('main/showmain');
-            $this->load->view('layouts/footer');
+            redirect('user/showmain');
+
             //redirect(base_url('welcome'));
         } else {
             $this->session->sess_destroy();
