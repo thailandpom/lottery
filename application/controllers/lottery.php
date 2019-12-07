@@ -4,11 +4,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class lottery extends CI_Controller {
   public function index()
 	{
-    $query = $this->db->query("SELECT * FROM user");
-    $data['users'] = $query->result();
-  	$this->load->view('layouts/header');
-    $this->load->view('lottery/index', $data);
-    $this->load->view('layouts/footer');
+    date_default_timezone_set('Asia/Bangkok');
+    $date =  date('Y-m-d H:i:s');
+    $query = $this->db->query("SELECT * FROM  setting WHERE public_time <= '$date'");
+    if ($query->num_rows() > 0) {
+      $update = array(
+        "status" => '0',
+      );
+      $this->db->update('setting', $update);
+      $this->load->view('layouts/header');
+      $this->load->view('lottery/index');
+      $this->load->view('layouts/footer');
+    }else{
+      $this->load->view('layouts/header');
+      $this->load->view('lottery/index');
+      $this->load->view('layouts/footer');
+    }
+  	
   }
   public function insert()
   {

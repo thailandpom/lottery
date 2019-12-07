@@ -45,8 +45,24 @@ class user extends CI_Controller
     }
        public function showmain()
     {
+       
+
+        date_default_timezone_set('Asia/Bangkok');
+        $date =  date('Y-m-d H:i:s');
+        $query = $this->db->query("SELECT * FROM  setting WHERE public_time <= '$date'");
+        if ($query->num_rows() > 0) {
+          $update = array(
+            "status" => '0',
+          );
+          $this->db->update('setting', $update);
+          $query = $this->db->query("SELECT * FROM  setting");
+          $data['settings'] = $query->row();
+        }else{
+            $query = $this->db->query("SELECT * FROM  setting");
+            $data['settings'] = $query->row();
+        }
         $this->load->view('layouts/header');
-        $this->load->view('main/showmain');
+        $this->load->view('main/showmain', $data);
         $this->load->view('layouts/footer');
     }
     public function register()

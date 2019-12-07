@@ -22,8 +22,8 @@
   
   
 	<div class="">
-		<div class="row bg-white mt-4">
-			<div class="col-8 p-4">
+		<div class="row bg-white mt-4 py-4">
+			<div class="col-8">
 				<!-- Tab panes -->
 				<div class="tab-content">
 					<div role="tabpanel" class="tab-pane tab-main fade in active show" id="main-three">
@@ -255,7 +255,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-4 p-4">
+			<div class="col-4">
 				<div>
           <h5>รายการแทง</h5>
         </div>
