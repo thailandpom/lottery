@@ -83,20 +83,12 @@
 				?>
  			</div>
  			<div class="col-sm">
-<<<<<<< HEAD
- 				<a class="btn btn-primary" href="#">
-=======
 			 <a class="btn btn-light btn-lot" href="<?php echo base_url('index.php/lottery/transaction') ?>">
->>>>>>> fc4c15efc25ddd42302104c58d9d244a58913fb5
  					<h4><i class="fas fa-list"></i> โพยหวย</h4>
  				</a>
  			</div>
  			<div class="col-sm">
-<<<<<<< HEAD
- 				<button type="button" class="btn btn-success">
-=======
  				<button type="button" class="btn btn-light ">
->>>>>>> fc4c15efc25ddd42302104c58d9d244a58913fb5
  					<h4><i class="fas fa-chart-bar"></i> รายการแจ้งฝาก/ถอน </h4>
  				</button>
  			</div>
