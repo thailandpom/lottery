@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<style>
 		body {
-			background-image: url('<?php echo base_url('assets/img/88.jpg') ?>');
+			background-image: url('<?php echo base_url('assets/img/BG.jpg') ?>');
 		}
 	</style>
 </head>
@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<nav class="mb-1 navbar navbar-expand-lg  navbar-dark danger-color-dark">
 		<div class="container">
-			<a class="navbar-brand" href="<?php echo base_url('index.php/user/main') ?>">LOTTERRY</a>
+                    <a class="navbar-brand" href="<?php echo base_url('index.php/user/main') ?>"><b>JAYTHALAD</b></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent-333" aria-controls="navbarSupportedContent-333"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -66,9 +66,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<a class="nav-link" href="<?php echo base_url('index.php/user/listbank') ?>"><i
 								class="fas fa-list"></i>แจ้ง ฝาก-ถอน</a>
 					</li>
+                                        </li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?php echo base_url('index.php/user/listbank') ?>"><i
+								class="fas fa-magic"></i> แทงหวย</a>
+					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url('index.php/setting/setting_main') ?>"><i
-								class="fas fa-gears"></i> ตั้งค่าระบบ</a>
+								class="fas fa-s"></i> ตั้งค่าระบบ</a>
 					</li>
 					<?php
             } else {
@@ -84,9 +89,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if ($this->session->userdata('userType') == 1) {
                       
           ?>
+                         
+                                    
 					<li class="nav-item">
 						<a class="nav-link waves-effect waves-light">
-							<span class="badge badge-pill badge-light">0.00<i class="fab fa-btc"
+							<span class="badge badge-pill badge-light">110,000.00<i class="fab fa-btc"
 									aria-hidden="true"></i></span>
 						</a>
 					</li>
@@ -138,6 +145,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="modal-content">
 
 				<div class="modal-header text-center">
+                                    <br><br><hr>
 					<h3 class="modal-title w-100 font-weight-bold"><strong>Sign in</strong></h3>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>

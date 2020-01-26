@@ -57,12 +57,12 @@
 				?>
  			</div>
  			<div class="col-sm">
- 				<a class="btn btn-light" href="#">
+ 				<a class="btn btn-primary" href="#">
  					<h4><i class="fas fa-list"></i> โพยหวย</h4>
  				</a>
  			</div>
  			<div class="col-sm">
- 				<button type="button" class="btn btn-light">
+ 				<button type="button" class="btn btn-success">
  					<h4><i class="fas fa-chart-bar"></i> รายการแจ้งฝาก/ถอน </h4>
  				</button>
  			</div>

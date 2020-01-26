@@ -132,7 +132,7 @@ class user extends CI_Controller
         } else {
             $this->session->sess_destroy();
             echo "<script>alert('Username หรือ Password ไม่ถูกต้อง!');</script>";
-            echo "<script type='text/javascript'>window.location.href = \"http://localhost/lottery/welcome/login\";</script>";
+            echo "<script type='text/javascript'>window.location.href = \"http://localhost/lottery/index.php/user/main\";</script>";
             exit();
         }
     }
