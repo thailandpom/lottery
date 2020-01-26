@@ -10,6 +10,32 @@
  	</div>
  	<!-- News jumbotron -->
  	<div class="jumbotron text-center hoverable p-4">
+		<div class="row pt-3 pb-4">
+ 			<div class="col-12 text-left">
+				<?php
+					$th_month_arr = array(
+							"0" => "",
+							"1" => "ม.ค.",
+							"2" => "ก.พ.",
+							"3" => "มี.ค.",
+							"4" => "เม.ย.",
+							"5" => "พ.ค.",
+							"6" => "มิ.ย.",
+							"7" => "ก.ค.",
+							"8" => "ส.ค.",
+							"9" => "ก.ย.",
+							"10" => "ต.ค.",
+							"11" => "พ.ค.",
+							"12" => "ธ.ค."
+					);
+
+					$date_all = date_create($settings->dateP);
+					$pDate = explode("-", $date_all->format('Y-m-d'));
+					$dateThai = $pDate[2] . " " . $th_month_arr[$pDate[1]] . " " . (($pDate[0]) + 543);
+					?>
+				 <h4>งวดที่ <?php echo $settings->amount; ?> ประจำวันที่ <?php echo $dateThai; ?></h4>
+			 </div>
+		</div>
  		<div class="row">
  			<div class="col-sm">
 			 <?php
@@ -39,11 +65,11 @@
 				<?php if($settings->status == 0)
 					{
 				?>
- 				<a class="btn btn-light btn-close">
+ 				<button class="btn btn-light btn-close" disabled>
 					 <h4><i class="fas fa-magic"></i> แทงหวย</h4>
 					 <div class="border-bottom mb-2"></div>
 					 ปิดรับ : <?php echo $dateThai . " " .$time; ?>
-				</a>
+				</button>
 				<?php 
 					}else{ 
 				?>
@@ -57,12 +83,12 @@
 				?>
  			</div>
  			<div class="col-sm">
- 				<a class="btn btn-light" href="#">
+			 <a class="btn btn-light btn-lot" href="<?php echo base_url('index.php/lottery/transaction') ?>">
  					<h4><i class="fas fa-list"></i> โพยหวย</h4>
  				</a>
  			</div>
  			<div class="col-sm">
- 				<button type="button" class="btn btn-light">
+ 				<button type="button" class="btn btn-light ">
  					<h4><i class="fas fa-chart-bar"></i> รายการแจ้งฝาก/ถอน </h4>
  				</button>
  			</div>

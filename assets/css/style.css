@@ -229,10 +229,14 @@ input:checked + .slider:after
 .col-sm .btn-close {
   background-color: #bf3436 !important;
   color: #FFF !important;
+  height: 90px !important;
+  width: 240px !important;
 }
 .col-sm .btn-open {
   background-color: rgb(11,188,1) !important;
   color: #FFF !important;
+  height: 90px !important;
+  width: 240px !important;
 }
 .start-container {
     margin-top: 64px
@@ -244,11 +248,81 @@ nav.navbar {
     position: fixed !important;
     top: 0;
     width: 100%;
-    z-index: 9999;
+    z-index: 1000 !important;
 }
 footer.page-footer {
    position: fixed !important;
    bottom: 0;
    width: 100%;
-   z-index: 9999; 
+   z-index: 1000 !important;
+}
+.table-responsive table tr th:nth-child(1) {
+  width: 5%;
+}
+.table-responsive table tr th:nth-child(2) {
+  width: 10%;
+}
+.table-responsive table tr th:nth-child(4) {
+  width: 20%;
+}
+.table-responsive table tr th:nth-child(5) {
+  width: 20%;
+}
+.btn-custom {
+  padding: 5px 10px !important;
+  color: #fff !important;
+}
+.btn-setting {
+  padding: 5px 10px !important;
+  color: #fff !important;
+  background-color: #000;
+}
+.btn-lot {
+  height: 90px;
+  padding: 2rem 2.14rem .84rem 2.14rem !important;
+  width: 240px !important;
+}
+.table-responsive table.new-table tr th:nth-child(1) {
+  width: 10%;
+}
+.table-responsive table.new-table tr th:nth-child(2) {
+  width: 10%;
+}
+.table-responsive table.new-table tr th:nth-child(4) {
+  width: 15%;
+}
+.table-responsive table.new-table tr th:nth-child(5) {
+  width: 10%;
+}
+.table-responsive table.new-table tr th:nth-child(6) {
+  width: 10%;
+}
+.table-responsive table.new-table tr th:nth-child(7) {
+  width: 10%;
+}
+.modal.fade .modal-dialog {
+  z-index: 9999 !important;
+  margin-top: 80px !important;
+}
+table.modal-table {
+  background-color: #fff !important;
+}
+table.modal-table th, table.modal-table td {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+table.modal-table tr td:nth-child(1) {
+  width: 15% !important;
+}
+table.modal-table tr td:nth-child(3) {
+  width: 15% !important;
+}
+table.modal-table tr td:nth-child(4) {
+  width: 15% !important;
+}
+table.modal-table tr.col-sum td, table.modal-table tr.col-sum th {
+  font-weight: 700 !important;
+}
+table.modal-table tr.col-sum td {
+  padding-top: 20px !important;
 }
