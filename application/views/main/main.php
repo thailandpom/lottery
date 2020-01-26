@@ -18,8 +18,58 @@
    			<div class="col-sm-6 mb-3 mb-md-0">
 
    				<div class="card border-danger">
-   					<h5 class="card-header h5"> <i class="fas fa-crown"></i> หวยรัฐบาล <font color="red"> 1 ธันวาคม
-   							2562</font>
+   					<h5 class="card-header h5"> 
+							 <i class="fas fa-crown"></i> 
+							 	<?php if($settings[0]->award1 == ""){ ?>
+								<?php
+								$th_month_arr = array(
+										"0" => "",
+										"1" => "มกราคม",
+										"2" => "กุมภาพันธ์",
+										"3" => "มีนาคม",
+										"4" => "เมษายน",
+										"5" => "พฤษภาคม",
+										"6" => "มิถุนายน",
+										"7" => "กรกฎาคม",
+										"8" => "สิงหาคม",
+										"9" => "กันยายน",
+										"10" => "ตุลาคม",
+										"11" => "พฤศจิกายน",
+										"12" => "ธันวาคม"
+								);
+
+								$date_all = date_create($settings[1]->dateP);
+								$pDate = explode("-", $date_all->format('Y-m-d'));
+								$dateThai = $pDate[2] . " " . $th_month_arr[$pDate[1]] . " " . (($pDate[0]) + 543);
+								?>
+								หวยรัฐบาล <font color="red"> <?php echo $dateThai; ?></font>
+								<?php } ?>
+
+
+								<?php if($settings[0]->award1 != ""){ ?>
+								<?php
+								$th_month_arr = array(
+										"0" => "",
+										"1" => "มกราคม",
+										"2" => "กุมภาพันธ์",
+										"3" => "มีนาคม",
+										"4" => "เมษายน",
+										"5" => "พฤษภาคม",
+										"6" => "มิถุนายน",
+										"7" => "กรกฎาคม",
+										"8" => "สิงหาคม",
+										"9" => "กันยายน",
+										"10" => "ตุลาคม",
+										"11" => "พฤศจิกายน",
+										"12" => "ธันวาคม"
+								);
+
+								$date_all = date_create($settings[0]->dateP);
+								$pDate = explode("-", $date_all->format('Y-m-d'));
+								$dateThai = $pDate[2] . " " . $th_month_arr[$pDate[1]] . " " . (($pDate[0]) + 543);
+								?>
+								หวยรัฐบาล <font color="red"> <?php echo $dateThai; ?></font>
+								<?php } ?>
    					</h5>
    					<div class="card-body">
    						<table class="table table-bordered">
@@ -33,10 +83,19 @@
    							</thead>
    							<tbody>
    								<tr class="text-center">
-   									<th scope="row">453522</th>
-   									<td scope="row"><b>617 261</b></td>
-   									<td scope="row"><b>457 013</b></td>
-   									<td scope="row"><b>81</b></td>
+										<?php if($settings[0]->award1 == ""){ ?>
+   									<th scope="row"><?php echo $settings[1]->award1; ?></th>
+   									<td scope="row"><b><?php echo $settings[1]->beforeThree1. " " .$settings[1]->beforeThree2; ?></b></td>
+   									<td scope="row"><b><?php echo $settings[1]->afterThree1. " " .$settings[1]->afterThree2; ?></b></td>
+										<td scope="row"><b><?php echo $settings[1]->two; ?></b></td>
+										<?php } ?>
+
+										<?php if($settings[0]->award1 != ""){ ?>
+   									<th scope="row"><?php echo $settings[0]->award1; ?></th>
+   									<td scope="row"><b><?php echo $settings[0]->beforeThree1. " " .$settings[0]->beforeThree2; ?></b></td>
+   									<td scope="row"><b><?php echo $settings[0]->afterThree1. " " .$settings[0]->afterThree2; ?></b></td>
+										<td scope="row"><b><?php echo $settings[0]->two; ?></b></td>
+										<?php } ?>
    								</tr>
 
    							</tbody>
@@ -47,8 +106,34 @@
 
    			<div class="col-sm-6">
    				<div class="card border-success">
-   					<h5 class="card-header h5"> <i class="fas fa-crown"></i> หวยรัฐบาล<font color="red"> 16 ธันวาคม
-   							2562</font>
+   					<h5 class="card-header h5"> 
+							 <i class="fas fa-crown"></i> 
+							 <?php if($settings[0]->award1 == ""){ ?>
+								<?php
+								$th_month_arr = array(
+										"0" => "",
+										"1" => "มกราคม",
+										"2" => "กุมภาพันธ์",
+										"3" => "มีนาคม",
+										"4" => "เมษายน",
+										"5" => "พฤษภาคม",
+										"6" => "มิถุนายน",
+										"7" => "กรกฎาคม",
+										"8" => "สิงหาคม",
+										"9" => "กันยายน",
+										"10" => "ตุลาคม",
+										"11" => "พฤศจิกายน",
+										"12" => "ธันวาคม"
+								);
+
+								$date_all = date_create($settings[0]->dateP);
+								$pDate = explode("-", $date_all->format('Y-m-d'));
+								$dateThai = $pDate[2] . " " . $th_month_arr[$pDate[1]] . " " . (($pDate[0]) + 543);
+								?>
+								หวยรัฐบาล <font color="red"> <?php echo $dateThai; ?></font>
+								<?php }else{ ?>
+								หวยรัฐบาล <font color="red"></font>
+								<?php } ?>
    					</h5>
 
 

@@ -21,17 +21,23 @@ class user extends CI_Controller
      */
     public function main()
     {
+
+        $query = $this->db->from("setting")
+        ->join('setting_result as sr', 'setting.id = sr.s_id')
+        ->order_by("setting.created_at desc")
+        ->get();
+        $data['settings'] = $query->result();
         $this->load->view('layouts/header');
-        $this->load->view('main/main');
+        $this->load->view('main/main', $data);
         $this->load->view('layouts/footer');
     }
-      public function listbank()
+    public function listbank()
     {
         $this->load->view('layouts/header');
         $this->load->view('main/listbank');
         $this->load->view('layouts/footer');
     }
-         public function deposit()
+    public function deposit()
     {
         $this->load->view('layouts/header');
         $this->load->view('main/deposit');
@@ -43,24 +49,32 @@ class user extends CI_Controller
         $this->load->view('main/showuser');
         $this->load->view('layouts/footer');
     }
-       public function showmain()
+    public function showmain()
     {
-       
 
         date_default_timezone_set('Asia/Bangkok');
-        $date =  date('Y-m-d H:i:s');
-        $query = $this->db->query("SELECT * FROM  setting WHERE public_time <= '$date'");
+        $date = date('Y-m-d H:i:s');
+        $query = $this->db->from("setting")->order_by("setting.created_at desc")->get();
         if ($query->num_rows() > 0) {
-          $update = array(
-            "status" => '0',
-          );
-          $this->db->update('setting', $update);
-          $query = $this->db->query("SELECT * FROM  setting");
-          $data['settings'] = $query->row();
-        }else{
-            $query = $this->db->query("SELECT * FROM  setting");
+          $row = $query->row();
+          $id = $row->id;
+          if($row->public_time <= $date){
+            $update = array(
+              "status" => '0',
+            );
+            $this->db->update('setting', $update, array('id' => $id));
+            $query = $this->db->from("setting")->order_by("setting.created_at desc")->get();
             $data['settings'] = $query->row();
-        }
+          }else{
+            $update = array(
+              "status" => '1',
+            );
+            $this->db->update('setting', $update, array('id' => $id));
+            $query = $this->db->from("setting")->order_by("setting.created_at desc")->get();
+            $data['settings'] = $query->row();
+          }
+            
+        } 
         $this->load->view('layouts/header');
         $this->load->view('main/showmain', $data);
         $this->load->view('layouts/footer');
@@ -85,11 +99,11 @@ class user extends CI_Controller
         if ($query->num_rows() > 0) {
             $this->session->set_flashdata('error', 'มีผู้ใช้นี้แล้ว');
             redirect('user/register');
-        }else{
-            if($password != $confirm_pass) {
+        } else {
+            if ($password != $confirm_pass) {
                 $this->session->set_flashdata('error', 'รหัสผ่าน และ ยืนยันรหัสผ่านไม่ตรงกัน');
                 redirect('user/register');
-            }else{
+            } else {
                 $data = array(
                     "b_id" => $this->input->post("b_id"),
                     "l_phone" => $this->input->post("l_phone"),
@@ -100,15 +114,15 @@ class user extends CI_Controller
                     "username" => $this->input->post("username"),
                     "password" => ($password),
                     // "password" => md5($password),
-        
+
                 );
                 $this->db->insert('user', $data);
-        
+
                 redirect('user/showuser');
             }
-            
+
         }
-        
+
     }
     public function checklogin()
     {

@@ -283,6 +283,7 @@
               <p class="p-show new-class" id="sumofaudi"></p>
             </div>
             <div class="btn-submit-form d-none mt-4">
+              <input type="hidden" name="s_id" value="<?php echo $settings->id; ?>" class="form-control">
               <input type="hidden" name="summary" id="summary" class="form-control" />
               <button type="button" class="btn btn-save" id="btn-save-form">แทงพนัน</button>
               <button type="button" class="btn btn-reset" id="btn-reset">ล้างข้อมูล</button>
@@ -442,6 +443,8 @@ $('.btn-first').on('click', function(){
         var text1 = "";
         text1 +=  '<div class="input-group s-three-top">';
         text1 +=  '<button class="btn-number" disabled>'+($(this).val())+'</button>';
+        text1 +=  '<input type="hidden" name="perPrice'+count+'" value="800" class="form-control" />';
+        text1 +=  '<input type="hidden" name="type'+count+'" value="1" class="form-control" />';
         text1 +=  '<input type="hidden" name="num'+count+'" value="'+($(this).val())+'" class="form-control" />';
         text1 +=  '<input type="text" name="price[]" value="1" minlength="1" maxlength="3" class="form-control price" />';
         text1 +=  '<button class="btn-sum" disabled>ชนะ : 800</button>';
@@ -450,7 +453,9 @@ $('.btn-first').on('click', function(){
         var text2 = "";
         text2 +=  '<div class="input-group s-three-tod">';
         text2 +=  '<button class="btn-number" disabled>'+($(this).val())+'</button>';
-        text2 +=  '<input type="hidden" name="num[]" value="'+($(this).val())+'" class="form-control" />';
+        text2 +=  '<input type="hidden" name="perPrice'+(count + 1)+'" value="150" class="form-control" />';
+        text2 +=  '<input type="hidden" name="type'+(count + 1)+'" value="2" class="form-control" />';
+        text2 +=  '<input type="hidden" name="num'+(count + 1)+'" value="'+($(this).val())+'" class="form-control" />';
         text2 +=  '<input type="text" name="price[]" value="1" minlength="1" maxlength="3" class="form-control price" />';
         text2 +=  '<button class="btn-sum" disabled>ชนะ : 150</button>';
         text2 +=  '<button class="btn-del" type="button" id="btn-three-tod'+($(this).val())+'" onclick="del_three_tod(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
@@ -468,6 +473,8 @@ $('.btn-first').on('click', function(){
         var text = "";
         text +=  '<div class="input-group s-three-top">';
         text +=  '<button class="btn-number" disabled>'+($(this).val())+'</button>';
+        text +=  '<input type="hidden" name="perPrice'+count+'" value="800" class="form-control" />';
+        text +=  '<input type="hidden" name="type'+count+'" value="1" class="form-control" />';
         text +=  '<input type="hidden" name="num'+count+'" value="'+($(this).val())+'" class="form-control" />';
         text +=  '<input type="text" name="price[]" value="1" minlength="1" maxlength="3" class="form-control price" />';
         text +=  '<button class="btn-sum" disabled>ชนะ : 800</button>';
@@ -484,6 +491,8 @@ $('.btn-first').on('click', function(){
         var text = "";
         text +=  '<div class="input-group s-three-tod">';
         text +=  '<button class="btn-number" disabled>'+($(this).val())+'</button>';
+        text +=  '<input type="hidden" name="perPrice'+count+'" value="150" class="form-control" />';
+        text +=  '<input type="hidden" name="type'+count+'" value="2" class="form-control" />';
         text +=  '<input type="hidden" name="num'+count+'" value="'+($(this).val())+'" class="form-control" />';
         text +=  '<input type="text" name="price[]" value="1" minlength="1" maxlength="3" class="form-control price" />';
         text +=  '<button class="btn-sum" disabled>ชนะ : 150</button>';
@@ -527,6 +536,8 @@ $('.btn-first-two').on('click', function(){
         var text1 = "";
         text1 +=  '<div class="input-group s-two-top">';
         text1 +=  '<button class="btn-number" disabled>'+($(this).val())+'</button>';
+        text1 +=  '<input type="hidden" name="perPrice'+count+'" value="90" class="form-control" />';
+        text1 +=  '<input type="hidden" name="type'+count+'" value="3" class="form-control" />';
         text1 +=  '<input type="hidden" name="num'+count+'" value="'+($(this).val())+'" class="form-control" />';
         text1 +=  '<input type="text" name="price[]" value="1" minlength="1" maxlength="3" class="form-control price" />';
         text1 +=  '<button class="btn-sum" disabled>ชนะ : 90</button>';
@@ -535,7 +546,9 @@ $('.btn-first-two').on('click', function(){
         var text2 = "";
         text2 +=  '<div class="input-group s-two-bottom">';
         text2 +=  '<button class="btn-number" disabled>'+($(this).val())+'</button>';
-        text2 +=  '<input type="hidden" name="num'+count+'" value="'+($(this).val())+'" class="form-control" />';
+        text2 +=  '<input type="hidden" name="perPrice'+(count + 1)+'" value="90" class="form-control" />';
+        text2 +=  '<input type="hidden" name="type'+(count + 1)+'" value="4" class="form-control" />';
+        text2 +=  '<input type="hidden" name="num'+(count + 1)+'" value="'+($(this).val())+'" class="form-control" />';
         text2 +=  '<input type="text" name="price[]" value="1" minlength="1" maxlength="3" class="form-control price" />';
         text2 +=  '<button class="btn-sum" disabled>ชนะ : 90</button>';
         text2 +=  '<button class="btn-del" type="button" id="btn-two-bottom'+($(this).val())+'" onclick="del_two_bottom(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
@@ -553,7 +566,9 @@ $('.btn-first-two').on('click', function(){
         var text = "";
         text +=  '<div class="input-group s-two-top">';
         text +=  '<button class="btn-number" disabled>'+($(this).val())+'</button>';
+        text +=  '<input type="hidden" name="perPrice'+count+'" value="90" class="form-control" />';
         text +=  '<input type="hidden" name="num'+count+'" value="'+($(this).val())+'" class="form-control" />';
+        text +=  '<input type="hidden" name="type'+count+'" value="3" class="form-control" />';
         text +=  '<input type="text" name="price[]" value="1" minlength="1" maxlength="3" class="form-control price" />';
         text +=  '<button class="btn-sum" disabled>ชนะ : 90</button>';
         text +=  '<button class="btn-del" type="button" id="btn-two-top'+($(this).val())+'" onclick="del_two_top(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
@@ -569,6 +584,8 @@ $('.btn-first-two').on('click', function(){
         var text = "";
         text +=  '<div class="input-group s-two-bottom">';
         text +=  '<button class="btn-number" disabled>'+($(this).val())+'</button>';
+        text +=  '<input type="hidden" name="perPrice'+count+'" value="90" class="form-control" />';
+        text +=  '<input type="hidden" name="type'+count+'" value="4" class="form-control" />';
         text +=  '<input type="hidden" name="num'+count+'" value="'+($(this).val())+'" class="form-control" />';
         text +=  '<input type="text" name="price[]" value="1" minlength="1" maxlength="3" class="form-control price" />';
         text +=  '<button class="btn-sum" disabled>ชนะ : 90</button>';
@@ -611,6 +628,8 @@ $('.btn-first-run').on('click', function(){
       var text1 = "";
       text1 +=  '<div class="input-group s-run-top">';
       text1 +=  '<button class="btn-number" disabled>'+($(this).val())+'</button>';
+      text1 +=  '<input type="hidden" name="perPrice'+count+'" value="3.20" class="form-control" />';
+      text1 +=  '<input type="hidden" name="type'+count+'" value="5" class="form-control" />';
       text1 +=  '<input type="hidden" name="num'+count+'" value="'+($(this).val())+'" class="form-control" />';
       text1 +=  '<input type="text" name="price[]" value="1" minlength="1" maxlength="3" class="form-control price" />';
       text1 +=  '<button class="btn-sum" disabled>ชนะ : 3.20</button>';
@@ -619,7 +638,9 @@ $('.btn-first-run').on('click', function(){
       var text2 = "";
       text2 +=  '<div class="input-group s-run-bottom">';
       text2 +=  '<button class="btn-number" disabled>'+($(this).val())+'</button>';
-      text2 +=  '<input type="hidden" name="num'+count+'" value="'+($(this).val())+'" class="form-control" />';
+      text2 +=  '<input type="hidden" name="perPrice'+(count + 1)+'" value="4.20" class="form-control" />';
+      text2 +=  '<input type="hidden" name="type'+(count + 1)+'" value="6" class="form-control" />';
+      text2 +=  '<input type="hidden" name="num'+(count + 1)+'" value="'+($(this).val())+'" class="form-control" />';
       text2 +=  '<input type="text" name="price[]" value="1" minlength="1" maxlength="3" class="form-control price" />';
       text2 +=  '<button class="btn-sum" disabled>ชนะ : 4.20</button>';
       text2 +=  '<button class="btn-del" type="button" id="btn-run-bottom'+($(this).val())+'" onclick="del_run_bottom(\''+($(this).val())+'\')"><i class="fas fa-times"></i></button>';
@@ -637,6 +658,8 @@ $('.btn-first-run').on('click', function(){
         var text = "";
         text +=  '<div class="input-group s-run-top">';
         text +=  '<button class="btn-number" disabled>'+($(this).val())+'</button>';
+        text +=  '<input type="hidden" name="perPrice'+count+'" value="3.20" class="form-control" />';
+        text +=  '<input type="hidden" name="type'+count+'" value="5" class="form-control" />';
         text +=  '<input type="hidden" name="num'+count+'" value="'+($(this).val())+'" class="form-control" />';
         text +=  '<input type="text" name="price[]" value="1" minlength="1" maxlength="3" class="form-control price" />';
         text +=  '<button class="btn-sum" disabled>ชนะ : 3.20</button>';
@@ -653,6 +676,8 @@ $('.btn-first-run').on('click', function(){
         var text = "";
         text +=  '<div class="input-group s-run-bottom">';
         text +=  '<button class="btn-number" disabled>'+($(this).val())+'</button>';
+        text +=  '<input type="hidden" name="perPrice'+count+'" value="4.20" class="form-control" />';
+        text +=  '<input type="hidden" name="type'+count+'" value="6" class="form-control" />';
         text +=  '<input type="hidden" name="num'+count+'" value="'+($(this).val())+'" class="form-control" />';
         text +=  '<input type="text" name="price[]" value="1" minlength="1" maxlength="3" class="form-control price" />';
         text +=  '<button class="btn-sum" disabled>ชนะ : 4.20</button>';

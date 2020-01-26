@@ -1,11 +1,4 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
-<link rel="stylesheet"
-  href="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/css/bootstrap-datetimepicker.min.css">
-<script src="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/js/bootstrap-datetimepicker.min.js"></script>
-<div class="container lottery">
+<div class="container">
 	<div class="row bg-white">
     <div class="col-12 mt-5 mb-4">
       <h2>ตั้งค่าระบบ</h2>
@@ -14,47 +7,82 @@
   </div>
   <div class="row bg-white mt-4 py-4">
     <div class="col-12">
-      สถานะ ระบบแทงหวย
-      <label class="switch align-middle ml-4">
-        <input type="checkbox" id="btn_status" disabled onclick="" <?php if($settings->status == 1){echo 'checked';}else{echo '';} ?> />
-        <div class="slider round"></div>
-      </label>
+      การออกสลาก ตามงวด
     </div>
-    <div class="col-12 mt-4">
-      เปิด - ปิด ระบบแทงหวย อัตโนมัติ
-    </div>
-    <div class="col-12 mt-4">
-      <form method="post" action="<?php echo base_url('index.php/setting/update') ?>">
-      <div class="row mx-0">
-        <div class="col-4 mt-3 pl-0">
-          <div class="form-group">
-            <div class='input-group date' id='datetimepicker1'>
-              <input type='text' name="datetime" value="<?php echo $settings->public_time; ?>" id="click-btn" class="form-control"/>
-              <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="col-4 mt-2 pl-0">
-          <button type="submit" class="btn btn-save" id="btn-save-form">บันทึก</button>
-        </div>
+    <div class="col-12">
+      <div class="float-right" style="width: 100px;">
+        <?php 
+          if($orders->status_receive == 1){
+          ?>
+        <a href="<?php echo base_url('index.php/setting/setting_create') ?>">
+          <button type="button" class="btn btn-save w-100 mx-0">เพิ่ม</button>
+        </a>
+        <?php }else{ ?>
+          <button type="button" class="btn btn-save w-100 mx-0" disabled>เพิ่ม</button>
+        <?php } ?>
       </div>
-      </form>
+    </div>
+    <div class="col-12 mt-4">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="text-center" scope="col">#</th>
+              <th class="text-center" scope="col">งวดที่</th>
+              <th scope="col">ประจำวันที่</th>
+              <th scope="col">สถานะ</th>
+              <th class="text-center" scope="col">จัดการข้อมูล</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+              $i = 1;
+              foreach ($settings as $val) {
+            ?>
+            <?php
+              $th_month_arr = array(
+                  "0" => "",
+                  "1" => "ม.ค.",
+                  "2" => "ก.พ.",
+                  "3" => "มี.ค.",
+                  "4" => "เม.ย.",
+                  "5" => "พ.ค.",
+                  "6" => "มิ.ย.",
+                  "7" => "ก.ค.",
+                  "8" => "ส.ค.",
+                  "9" => "ก.ย.",
+                  "10" => "ต.ค.",
+                  "11" => "พ.ค.",
+                  "12" => "ธ.ค."
+              );
+
+              $date_all = date_create($val->dateP);
+              $pDate = explode("-", $date_all->format('Y-m-d'));
+              $dateThai = $pDate[2] . " " . $th_month_arr[$pDate[1]] . " " . (($pDate[0]) + 543);
+            ?>
+            <tr>
+              <th class="text-center" scope="row"><?php echo $i++; ?></th>
+              <th class="text-center" scope="row"><?php echo $val->amount; ?></th>
+              <td><?php echo $dateThai; ?></td>
+              <td>
+                <?php  
+                  if($val->status == 1){
+                    echo '<span class="text-success">เปิดรับแทง</span>';
+                  }else {
+                    echo '<span class="text-danger">ปิดรับแทง</span>';
+                  }
+                ?>
+              </td>
+              <td class="text-center">
+                <a class="btn btn-custom btn-primary" href="<?php echo base_url('index.php/setting/setting_result/' . $val->id) ?>">ผลการออกรางวัล</a>
+                <a class="btn btn-setting btn-warning" href="<?php echo base_url('index.php/setting/setting_edit/' . $val->id) ?>">ตั้งค่า</a>
+              </td>
+            </tr>
+              <?php } ?>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
 
-
-
-
-<script type="text/javascript">
-  $('#datetimepicker1').datetimepicker({
-    defaultDate: new Date(),
-    format: 'YYYY-MM-DD H:mm:ss',
-    sideBySide: true
-  });
-  $('#click-btn').on('click', function(){
-    $('.input-group-addon').click();
-  });
-</script>
