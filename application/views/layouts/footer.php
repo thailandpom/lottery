@@ -6,7 +6,7 @@
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-4">© 2019 Copyright:
-      <a href="#"> LOTTERY.COM</a>
+      <a href="#"> JAYTHALAD.COM</a>
     </div>
     <!-- Copyright -->
 

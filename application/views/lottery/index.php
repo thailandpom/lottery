@@ -2,7 +2,7 @@
 	<div class="row bg-white">
     <div class="col-12 mt-5">
         <h2><i class="fas fa-magic"></i> แทงหวย
-        <span class="badge badge-pill badge-danger font-weight-light"><small>16 ธันวาคม 2562</small></span></h2>
+        <span class="badge badge-pill badge-danger font-weight-light"><small>17 มกราคม 2563</small></span></h2>
     </div>
     <div class="col-12 mt-4">
       <ul class="nav nav-tabs" role="tablist">
