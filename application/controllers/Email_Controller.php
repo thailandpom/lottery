@@ -24,8 +24,8 @@ class Email_controller extends CI_Controller
         $config = array();
         $config['protocol'] = 'smtp';
         $config['smtp_host'] = 'smtp.gmail.com';
-        $config['smtp_user'] = 'noreplytruedigitalpark@gmail.com';
-        $config['smtp_pass'] = 'fsmkrhclbdznzhpf';
+        $config['smtp_user'] = '';
+        $config['smtp_pass'] = '';
         $config['smtp_port'] = 587;
         $config["smtp_crypto"] = "tls";
 
